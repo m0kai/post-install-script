@@ -35,7 +35,7 @@ echo " ---- Setting up OS Config ---- "
 # make sure config directories exist
 mkdir -p ~/.config/hypr
 mkdir -p ~/.config/kitty
-mkdir -p ~/.config/wayland
+mkdir -p ~/.config/waybar
 
 # Download my backup config files
 wget -O ~/.config/hypr/hyprland.conf https://raw.githubusercontent.com/m0kai/arch-dotfiles/main/hypr/hyprland.conf
