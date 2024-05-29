@@ -89,3 +89,7 @@ git clone https://github.com/m0kai/Grimoire
 # Setup Git with my author information
 git config --global user.email "m0kai@proton.me"
 git config --global user.name "m0kai"
+
+# Create final few directories
+cd ~
+mkdir -p ~/VPNs
