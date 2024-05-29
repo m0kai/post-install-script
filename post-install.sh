@@ -8,7 +8,7 @@ pacman -Syu # remember to add sudo
 
 # install software I will always need
 # remember to add sudo
-pacman -S nmap firefox neovim base-devel git intel-ucode gnu-netcat metasploit exploitdb ffuf burpsuite code thunar obsidian zsh net-tools ttf-font-awesome fastfetch rofi brightnessctl --noconfirm
+pacman -S nmap firefox neovim base-devel git intel-ucode gnu-netcat metasploit exploitdb ffuf burpsuite code thunar obsidian zsh net-tools ttf-font-awesome fastfetch rofi brightnessctl pamixer --noconfirm
 
 # Download/Install yay for AUR
 mkdir -p Software
