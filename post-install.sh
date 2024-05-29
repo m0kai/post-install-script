@@ -57,5 +57,26 @@ echo " ---- Setting up SSH Key for Github ---- "
 ssh-keygen -t ed25519 -C "m0kai@github.com"
 eval "$(ssh-agent -s)"
 ssh-add ~/.ssh/id_ed25519
+# echo "Copy+Paste the following Public Key to GitHub:"
+# cat ~/.ssh/id_ed25519.pub
+
+echo " ---- Installing and configuring oh-my-zsh ---- "
+# Install oh-my-szh
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+
+# Download theme and my configured .zshrc file
+wget -O ~/.oh-my-zsh/themes/heapbytes.zsh-theme https://raw.githubusercontent.com/m0kai/arch-dotfiles/main/zsh/heapbytes.zsh-theme
+wget -O ~/.zshrc https://raw.githubusercontent.com/m0kai/arch-dotfiles/main/zsh/.zshrc
+
 echo "Copy+Paste the following Public Key to GitHub:"
 cat ~/.ssh/id_ed25519.pub
+read -p "Continue? (Y/N): " confirm && [[ $confirm == [yY] || $confirm == [yY][eE][sS] ]] || exit 1
+
+echo " ---- Pulling Down Repos ---"
+mkdir -p ~/Repos
+mkdir -p ~/Documents
+cd Repos
+git clone git@github.com:m0kai/post-install-script.git
+git clone git@github.com:m0kai/arch-dotfiles.git
+cd ~/Documents
+git clone https://github.com/m0kai/Grimoire
