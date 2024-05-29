@@ -18,7 +18,7 @@ sudo pacman -S intel-compute-runtime --noconfirm
 
 # install software I will always need
 # remember to add sudo
-sudo pacman -S nmap firefox neovim base-devel git intel-ucode gnu-netcat metasploit exploitdb ffuf burpsuite code thunar obsidian zsh net-tools ttf-font-awesome fastfetch rofi brightnessctl pamixer hashcat seclists --noconfirm
+sudo pacman -S nmap firefox neovim base-devel git intel-ucode gnu-netcat metasploit exploitdb ffuf burpsuite code thunar obsidian zsh net-tools ttf-font-awesome fastfetch rofi brightnessctl pamixer hashcat seclists waybar --noconfirm
 
 echo " ---- Installing yay ---- "
 # Download/Install yay for AUR
