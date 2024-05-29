@@ -4,14 +4,14 @@
 curl -O https://blackarch.org/strap.sh
 chmod +x strap.sh
 ./strap.sh
-pacman -Syu # remember to add sudo
+sudo pacman -Syu # remember to add sudo
 
 # installing hardware specific packages for GPU stuff
-pacman -S intel-compute-runtime --noconfirm
+sudo pacman -S intel-compute-runtime --noconfirm
 
 # install software I will always need
 # remember to add sudo
-pacman -S nmap firefox neovim base-devel git intel-ucode gnu-netcat metasploit exploitdb ffuf burpsuite code thunar obsidian zsh net-tools ttf-font-awesome fastfetch rofi brightnessctl pamixer --noconfirm
+sudo pacman -S nmap firefox neovim base-devel git intel-ucode gnu-netcat metasploit exploitdb ffuf burpsuite code thunar obsidian zsh net-tools ttf-font-awesome fastfetch rofi brightnessctl pamixer hashcat seclists --noconfirm
 
 # Download/Install yay for AUR
 mkdir -p Software
@@ -36,4 +36,8 @@ wget -O ~/.config/kitty/kitty.conf https://raw.githubusercontent.com/m0kai/arch-
 wget -O ~/.config/waybar/config https://raw.githubusercontent.com/m0kai/arch-dotfiles/main/waybar/config
 wget -O ~/.config/waybar/style.css https://raw.githubusercontent.com/m0kai/arch-dotfiles/main/waybar/style.css
 
-
+# setup and download wordlists
+sudo mkdir -p /usr/share/wordlists
+sudo mv /usr/share/seclists /usr/share/wordlists
+sudo wget -O /usr/share/wordlists/rockyou.txt.gz https://github.com/praetorian-inc/Hob0Rules/raw/master/wordlists/rockyou.txt.gz
+sudo gunzip /usr/share/wordlists/rockyou.txt.gz
