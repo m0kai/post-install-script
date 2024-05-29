@@ -1,10 +1,15 @@
 #!/bin/bash
 
+# setting pacman config
+# sudo wget -O /etc/pacman.conf 
+
 # Setup Blackarch repository for pacmani
 echo " ---- Setting up BlackArch ---- "
 curl -O https://blackarch.org/strap.sh
 chmod +x strap.sh
-./strap.sh
+sudo ./strap.sh
+
+sudo wget -O /etc/pacman.conf  https://raw.githubusercontent.com/m0kai/arch-dotfiles/main/pacman/pacman.conf
 sudo pacman -Syu # remember to add sudo
 
 echo " ---- Installing Packages ---"
@@ -80,3 +85,7 @@ git clone git@github.com:m0kai/post-install-script.git
 git clone git@github.com:m0kai/arch-dotfiles.git
 cd ~/Documents
 git clone https://github.com/m0kai/Grimoire
+
+# Setup Git with my author information
+git config --global user.email "m0kai@proton.me"
+git config --global user.name "m0kai"
