@@ -86,8 +86,8 @@ mkdir -p ~/Documents
 cd Repos
 git clone git@github.com:m0kai/post-install-script.git
 git clone git@github.com:m0kai/arch-dotfiles.git
-cd ~/Documents
-git clone https://github.com/m0kai/Grimoire
+#cd ~/Documents
+git clone git@github.com:m0kai/Grimoire.git
 
 # Setup Git with my author information
 git config --global user.email "m0kai@proton.me"
