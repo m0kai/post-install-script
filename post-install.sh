@@ -29,7 +29,7 @@ cd yay
 makepkg -si
 cd ~
 
-yay -S ticktick notion-app
+yay -S ticktick notion-app xmind
 
 # install Joplin
 wget -O - https://raw.githubusercontent.com/laurent22/joplin/dev/Joplin_install_and_update.sh | bash
