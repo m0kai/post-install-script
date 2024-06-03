@@ -56,6 +56,9 @@ sudo gunzip /usr/share/wordlists/rockyou.txt.gz
 sudo wget -O /usr/share/wordlists/dirb/common.txt https://raw.githubusercontent.com/v0re/dirb/master/wordlists/common.txt
 sudo wget -O /usr/share/wordlists/dirb/big.txt https://raw.githubusercontent.com/v0re/dirb/master/wordlists/big.txt
 sudo wget -O /usr/share/wordlists/dirbuster/directory-list-2.3-big.txt https://raw.githubusercontent.com/daviddias/node-dirbuster/master/lists/directory-list-2.3-big.txt
+cd /usr/share/wordlists
+sudo git clone https://github.com/insidetrust/statistically-likely-usernames.git
+cd ~
 
 echo " ---- Setting up SSH Key for Github ---- "
 # Setup SSH key for GitHub
