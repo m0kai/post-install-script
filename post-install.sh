@@ -31,6 +31,9 @@ cd ~
 
 yay -S ticktick notion-app
 
+# install Joplin
+wget -O - https://raw.githubusercontent.com/laurent22/joplin/dev/Joplin_install_and_update.sh | bash
+
 echo " ---- Setting up OS Config ---- "
 # make sure config directories exist
 mkdir -p ~/.config/hypr
