@@ -32,6 +32,15 @@ cd yay
 makepkg -si
 cd ~
 
+# install nwg-drawer
+cd Software
+git clone https://github.com/nwg-piotr/nwg-drawer.git
+cd nwg-drawer
+make get
+make build
+sudo make install
+cd ~
+
 yay -S ticktick notion-app xmind
 
 # install Joplin
