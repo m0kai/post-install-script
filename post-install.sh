@@ -18,7 +18,7 @@ sudo pacman -S intel-compute-runtime --noconfirm
 
 # install software I will always need
 # remember to add sudo
-sudo pacman -S nmap firefox neovim base-devel git intel-ucode gnu-netcat metasploit exploitdb ffuf burpsuite code thunar obsidian zsh net-tools ttf-font-awesome fastfetch rofi brightnessctl pamixer hashcat seclists waybar openvpn hydra discord vivaldi bluez bluez-utils blueberry --noconfirm
+sudo pacman -S nmap firefox neovim base-devel git intel-ucode gnu-netcat metasploit exploitdb ffuf burpsuite code thunar obsidian zsh net-tools ttf-font-awesome fastfetch rofi brightnessctl pamixer hashcat seclists waybar openvpn hydra discord vivaldi bluez bluez-utils blueberry mousepad --noconfirm
 
 # enable bluetooth
 sudo systemctl enable bluetooth.service
