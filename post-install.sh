@@ -18,7 +18,7 @@ sudo pacman -S intel-compute-runtime --noconfirm
 
 # install software I will always need
 # remember to add sudo
-sudo pacman -S nmap firefox neovim base-devel git intel-ucode gnu-netcat metasploit exploitdb ffuf burpsuite code thunar obsidian zsh net-tools ttf-font-awesome fastfetch brightnessctl pamixer hashcat seclists waybar openvpn hydra discord vivaldi bluez bluez-utils blueberry mousepad signal-desktop gnome-themes-extra --noconfirm
+sudo pacman -S nmap firefox neovim base-devel git intel-ucode gnu-netcat metasploit exploitdb ffuf burpsuite code thunar obsidian zsh net-tools ttf-font-awesome fastfetch brightnessctl pamixer hashcat seclists waybar openvpn hydra discord vivaldi bluez bluez-utils blueberry mousepad signal-desktop gnome-themes-extra  --noconfirm
 
 # enable bluetooth
 sudo systemctl enable bluetooth.service
@@ -41,7 +41,7 @@ make build
 sudo make install
 cd ~
 
-yay -S ticktick notion-app xmind
+yay -S ticktick notion-app xmind 1password
 
 # install Joplin
 wget -O - https://raw.githubusercontent.com/laurent22/joplin/dev/Joplin_install_and_update.sh | bash
