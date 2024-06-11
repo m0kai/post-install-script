@@ -18,7 +18,7 @@ sudo pacman -S intel-compute-runtime --noconfirm
 
 # install software I will always need
 # remember to add sudo
-sudo pacman -S nmap firefox neovim base-devel git intel-ucode gnu-netcat metasploit exploitdb ffuf burpsuite code thunar obsidian zsh net-tools ttf-font-awesome fastfetch brightnessctl pamixer hashcat seclists waybar openvpn hydra discord vivaldi bluez bluez-utils blueberry mousepad signal-desktop gnome-themes-extra  --noconfirm
+sudo pacman -S nmap neovim base-devel git intel-ucode gnu-netcat metasploit exploitdb ffuf burpsuite code thunar obsidian zsh net-tools ttf-font-awesome fastfetch brightnessctl pamixer seclists waybar openvpn hydra discord vivaldi bluez bluez-utils blueberry mousepad signal-desktop gnome-themes-extra  --noconfirm
 
 # enable bluetooth
 sudo systemctl enable bluetooth.service
@@ -32,6 +32,7 @@ cd yay
 makepkg -si
 cd ~
 
+echo " ---- Installing software form source ---- "
 # install nwg-drawer
 cd Software
 git clone https://github.com/nwg-piotr/nwg-drawer.git
@@ -39,6 +40,13 @@ cd nwg-drawer
 make get
 make build
 sudo make install
+cd ~
+
+# Install hashcat
+git clone https://github.com/hashcat/hashcat.git
+cd hashcat
+make
+make install
 cd ~
 
 yay -S ticktick notion-app xmind 1password
