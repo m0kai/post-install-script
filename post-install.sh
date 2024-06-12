@@ -34,22 +34,22 @@ cd ~
 
 echo " ---- Installing software form source ---- "
 # install nwg-drawer
-cd Software
-git clone https://github.com/nwg-piotr/nwg-drawer.git
-cd nwg-drawer
-make get
-make build
-sudo make install
-cd ~
+#cd Software
+#git clone https://github.com/nwg-piotr/nwg-drawer.git
+#cd nwg-drawer
+#make get
+#make build
+#sudo make install
+#cd ~
 
 # Install hashcat
 git clone https://github.com/hashcat/hashcat.git
 cd hashcat
 make
-make install
+sudo make install
 cd ~
 
-yay -S ticktick notion-app xmind 1password
+yay -S ticktick notion-app xmind 1password nwg-drawer
 
 # install Joplin
 wget -O - https://raw.githubusercontent.com/laurent22/joplin/dev/Joplin_install_and_update.sh | bash
