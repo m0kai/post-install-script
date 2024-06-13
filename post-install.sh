@@ -43,6 +43,7 @@ echo " ---- Installing software form source ---- "
 #cd ~
 
 # Install hashcat
+cd Software
 git clone https://github.com/hashcat/hashcat.git
 cd hashcat
 make
