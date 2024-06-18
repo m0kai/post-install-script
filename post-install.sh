@@ -14,11 +14,11 @@ sudo pacman -Syu # remember to add sudo
 
 echo " ---- Installing Packages ---"
 # installing hardware specific packages for GPU stuff
-sudo pacman -S intel-compute-runtime --noconfirm
+#sudo pacman -S intel-compute-runtime --noconfirm
 
 # install software I will always need
 # remember to add sudo
-sudo pacman -S nmap neovim base-devel git intel-ucode gnu-netcat metasploit exploitdb ffuf burpsuite code thunar obsidian zsh net-tools ttf-font-awesome fastfetch brightnessctl pamixer seclists waybar openvpn hydra discord vivaldi bluez bluez-utils blueberry mousepad signal-desktop gnome-themes-extra  --noconfirm
+sudo pacman -S hyprland kitty helix nmap neovim base-devel git intel-ucode gnu-netcat metasploit exploitdb ffuf burpsuite code thunar obsidian zsh net-tools ttf-font-awesome fastfetch brightnessctl pamixer seclists waybar openvpn hydra discord vivaldi bluez bluez-utils blueberry mousepad signal-desktop gnome-themes-extra  --noconfirm
 
 # enable bluetooth
 sudo systemctl enable bluetooth.service
