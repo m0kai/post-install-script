@@ -73,7 +73,7 @@ validate_operation $CODE "Pacman Update:"
 printf " ---- Installing $(GREEN)Pacman $(NOCOLOR) Packages ---- \n"
 for package in ${PACMANPACKAGES[@]};
 do
-	sudo pacman -S $package --noconfirm
+	sudo pacman -S $package --noconfirm >/dev/null 2>&1
 	CODE=$?
 	validate_operation $CODE "${package} install:"
 done
@@ -107,7 +107,7 @@ cd ~
 printf " ---- Installing AUR Software ---- \n"
 for package in ${YAYPACKAGES[@]};
 do
-	yay -S $package
+	yay -S $package >/dev/null 2>&1
 	CODE=$?
 	validate_operation $CODE "${package} install:"
 done
