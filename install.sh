@@ -50,6 +50,37 @@ if [ $answer == "y" ];then
 	nvidia_driver_install
 fi
 
+printf " ---- Setting up SSH Key for Github ---- \n"
+# Setup SSH key for GitHub
+ssh-keygen -t ed25519 -C "m0kai@github.com"
+eval "$(ssh-agent -s)" 
+ssh-add ~/.ssh/id_ed25519
+echo "Copy+Paste the following Public Key to GitHub:"
+cat ~/.ssh/id_ed25519.pub
+read -p "Continue? (Y/N): " confirm && [[ $confirm == [yY] || $confirm == [yY][eE][sS] ]] || exit 1
+
+printf " ---- Installing yay --- \n"
+mkdir -p Software
+cd Software
+git clone https://aur.archlinux.org/yay.git
+cd yay
+makepkg -si
+cd ~
+
+printf " ---- Installing Hashcat ---- \n"
+cd Software
+git clone https://github.com/hashcat/hashcat.git
+cd hashcat
+make
+sudo make install
+cd ~
+
+printf " ---- Installing AUR Software ---- \n"
+for package in ${YAYPACKAGES[@]};
+do
+	yay -S $package 
+done
+
 
 printf " ---- Setting up BlackArch ---- \n"
 curl -O https://blackarch.org/strap.sh >/dev/null 2>&1
@@ -78,39 +109,39 @@ do
 	validate_operation $CODE "${package} install:"
 done
 
-printf " ---- Installing yay --- \n"
-mkdir -p Software
-cd Software
-git clone https://aur.archlinux.org/yay.git >/dev/null 2>&1
-CODE=$?
-validate_operation $CODE "yay repo clone:"
-cd yay
-makepkg -si >/dev/null 2>&1
-CODE=$?
-validate_operation $CODE "yay install:"
-cd ~
+# printf " ---- Installing yay --- \n"
+# mkdir -p Software
+# cd Software
+# git clone https://aur.archlinux.org/yay.git >/dev/null 2>&1
+# CODE=$?
+# validate_operation $CODE "yay repo clone:"
+# cd yay
+# makepkg -si >/dev/null 2>&1
+# CODE=$?
+# validate_operation $CODE "yay install:"
+# cd ~
 
-printf " ---- Installing Hashcat ---- \n"
-cd Software
-git clone https://github.com/hashcat/hashcat.git >/dev/null 2>&1
-CODE=$?
-validate_operation $CODE "hashcat repo clone:"
-cd hashcat
-make >/dev/null 2>&1
-CODE=$?
-validate_operation $CODE "hashcat build:"
-sudo make install >/dev/null 2>&1
-CODE=$?
-validate_operation $CODE "hashcat install:"
-cd ~
+# printf " ---- Installing Hashcat ---- \n"
+# cd Software
+# git clone https://github.com/hashcat/hashcat.git >/dev/null 2>&1
+# CODE=$?
+# validate_operation $CODE "hashcat repo clone:"
+# cd hashcat
+# make >/dev/null 2>&1
+# CODE=$?
+# validate_operation $CODE "hashcat build:"
+# sudo make install >/dev/null 2>&1
+# CODE=$?
+# validate_operation $CODE "hashcat install:"
+# cd ~
 
-printf " ---- Installing AUR Software ---- \n"
-for package in ${YAYPACKAGES[@]};
-do
-	yay -S $package >/dev/null 2>&1
-	CODE=$?
-	validate_operation $CODE "${package} install:"
-done
+# printf " ---- Installing AUR Software ---- \n"
+# for package in ${YAYPACKAGES[@]};
+# do
+# 	yay -S $package >/dev/null 2>&1
+# 	CODE=$?
+# 	validate_operation $CODE "${package} install:"
+# done
 
 printf " ---- Setting up dotfiles ---- \n"
 # make sure config directories exist
@@ -191,14 +222,14 @@ wget -O ~/.zshrc https://raw.githubusercontent.com/m0kai/arch-dotfiles/main/zsh/
 CODE=$?
 validate_operation $CODE "zsh config install"
 
-printf " ---- Setting up SSH Key for Github ---- \n"
-# Setup SSH key for GitHub
-ssh-keygen -t ed25519 -C "m0kai@github.com"
-eval "$(ssh-agent -s)" 
-ssh-add ~/.ssh/id_ed25519
-echo "Copy+Paste the following Public Key to GitHub:"
-cat ~/.ssh/id_ed25519.pub
-read -p "Continue? (Y/N): " confirm && [[ $confirm == [yY] || $confirm == [yY][eE][sS] ]] || exit 1
+# printf " ---- Setting up SSH Key for Github ---- \n"
+# # Setup SSH key for GitHub
+# ssh-keygen -t ed25519 -C "m0kai@github.com"
+# eval "$(ssh-agent -s)" 
+# ssh-add ~/.ssh/id_ed25519
+# echo "Copy+Paste the following Public Key to GitHub:"
+# cat ~/.ssh/id_ed25519.pub
+# read -p "Continue? (Y/N): " confirm && [[ $confirm == [yY] || $confirm == [yY][eE][sS] ]] || exit 1
 
 
 printf " ---- Pulling Down Repos ---- \n"
