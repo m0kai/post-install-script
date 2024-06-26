@@ -3,7 +3,7 @@
 # Variable definitions
 RED='\033[0;31m'
 NOCOLOR='\033[0m'
-GREEN='\033[-;32m'
+GREEN='\033[0;32m'
 
 # Array Definitions
 PACMANPACKAGES=("nmap" "neovim" "base-devel" "git" "intel-ucode" "gnu-netcat" "metasploit" "exploitdb" "ffuf" "burpsuite" "code" "thunar" "obsidian" "zsh" "net-tools" "ttf-font-awesome" "fastfetch" "brightnessctl" "pamixer" "seclists" "waybar" "openvpn" "hydra" "discord" "vivaldi" "bluez" "bluez-utils" "blueberry" "mousepad" "signal-desktop" "gnome-themes-extra" "steam")
