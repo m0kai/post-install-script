@@ -6,8 +6,8 @@ NOCOLOR='\033[0m'
 GREEN='\033[-;32m'
 
 # Array Definitions
-PACMANPACKAGES=("nmap" "neovim" "base-devel" "git" "intel-ucode" "gnu-netcat" "metasploit" "exploitdb" "ffuf" "burpsuite" "code" "thunar" "obsidian" "zsh" "net-tools" "ttf-font-awesome" "fastfetch" "brightnessctl" "pamixer" "seclists" "waybar" "openvpn" "hydra" "discord" "vivaldi" "bluez" "bluez-utils" "blueberry" "mousepad" "signal-desktop" "gnome-themes-extra")
-YAYPACKAGES=("ticktick" "notion-app" "xmind" "1password" "nwg-drawer")
+PACMANPACKAGES=("nmap" "neovim" "base-devel" "git" "intel-ucode" "gnu-netcat" "metasploit" "exploitdb" "ffuf" "burpsuite" "code" "thunar" "obsidian" "zsh" "net-tools" "ttf-font-awesome" "fastfetch" "brightnessctl" "pamixer" "seclists" "waybar" "openvpn" "hydra" "discord" "vivaldi" "bluez" "bluez-utils" "blueberry" "mousepad" "signal-desktop" "gnome-themes-extra" "steam")
+YAYPACKAGES=("ticktick" "notion-app" "xmind" "1password" "nwg-drawer" "opera")
 
 # function definitions
 validate_operation() {
