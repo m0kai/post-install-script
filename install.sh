@@ -6,8 +6,8 @@ NOCOLOR='\033[0m'
 GREEN='\033[0;32m'
 
 # Array Definitions
-PACMANPACKAGES=("nmap" "neovim" "base-devel" "intel-ucode" "gnu-netcat" "metasploit" "exploitdb" "ffuf" "burpsuite" "code" "thunar" "obsidian" "zsh" "net-tools" "ttf-font-awesome" "ttf-bigblueterminal-nerd" "fastfetch" "brightnessctl" "pamixer" "seclists" "waybar" "openvpn" "hydra" "discord" "vivaldi" "bluez" "bluez-utils" "blueberry" "mousepad" "signal-desktop" "gnome-themes-extra" "steam" "cuda")
-YAYPACKAGES=("ticktick" "notion-app" "1password" "nwg-drawer")
+PACMANPACKAGES=("nmap" "neovim" "base-devel" "amd-ucode" "gnu-netcat" "thunar" "obsidian" "zsh" "net-tools" "ttf-font-awesome" "ttf-bigblueterminal-nerd" "fastfetch" "brightnessctl" "pamixer" "waybar" "discord" "vivaldi" "bluez" "bluez-utils" "blueberry" "mousepad" "signal-desktop" "gnome-themes-extra" "steam" "cuda")
+YAYPACKAGES=("1password" "nwg-drawer")
 
 # function definitions
 validate_operation() {
@@ -21,33 +21,33 @@ validate_operation() {
 	fi
 }
 
-nvidia_driver_install() {
-	echo 'QT_QPA_PLATFORMTHEME="wayland;xcb"' | sudo tee -a /etc/environment >/dev/null
-	echo 'GBM_BACKEND=nvidia-drm' | sudo tee -a /etc/environment >/dev/null
-	echo '__GLX_VENDOR_LIBRARY_NAME=nvidia' | sudo tee -a /etc/environment >/dev/null
-	echo 'ENABLE_VKBASALT=1' | sudo tee -a /etc/environment >/dev/null
-	echo 'LIBVA_DRIVER_NAME=nvidia' | sudo tee -a /etc/environment >/dev/null
-	echo 'WLR_NO_HARDWARE_CURSORS=1' | sudo tee -a /etc/environment >/dev/null
-	echo 'Put the following into MODULES=() in  /etc/mkinitcpio.conf'
-	echo 'nvidia nvidia_modeset nvidia_uvm nvidia_drm'
-	read -p "Continue? (Y/N): " confirm && [[ $confirm == [yY] || $confirm == [yY][eE][sS] ]] || exit 1
-	sudo mkinitcpio -P
-	echo 'Put the following into /boot/loader/entries/xxx.conf'
-	echo "nvidia-drm.modeset=1"
-	exit 0
-}
+# nvidia_driver_install() {
+# 	echo 'QT_QPA_PLATFORMTHEME="wayland;xcb"' | sudo tee -a /etc/environment >/dev/null
+# 	echo 'GBM_BACKEND=nvidia-drm' | sudo tee -a /etc/environment >/dev/null
+# 	echo '__GLX_VENDOR_LIBRARY_NAME=nvidia' | sudo tee -a /etc/environment >/dev/null
+# 	echo 'ENABLE_VKBASALT=1' | sudo tee -a /etc/environment >/dev/null
+# 	echo 'LIBVA_DRIVER_NAME=nvidia' | sudo tee -a /etc/environment >/dev/null
+# 	echo 'WLR_NO_HARDWARE_CURSORS=1' | sudo tee -a /etc/environment >/dev/null
+# 	echo 'Put the following into MODULES=() in  /etc/mkinitcpio.conf'
+# 	echo 'nvidia nvidia_modeset nvidia_uvm nvidia_drm'
+# 	read -p "Continue? (Y/N): " confirm && [[ $confirm == [yY] || $confirm == [yY][eE][sS] ]] || exit 1
+# 	sudo mkinitcpio -P
+# 	echo 'Put the following into /boot/loader/entries/xxx.conf'
+# 	echo "nvidia-drm.modeset=1"
+# 	exit 0
+# }
 
 # keeping as an example for now
 #printf "standard ${RED}red ${NOCOLOR}no color ${GREEN}green\n"
 # Add to end of command to suppress output: >/dev/null 2>&1
 
 # Actual start of script
-printf "Setup nvidia proprietary driver config? (y/n) \n"
-read answer
+# printf "Setup nvidia proprietary driver config? (y/n) \n"
+# read answer
 
-if [ $answer == "y" ]; then
-	nvidia_driver_install
-fi
+# if [ $answer == "y" ]; then
+# 	nvidia_driver_install
+# fi
 
 printf " ---- Setting up SSH Key for Github ---- \n"
 # Setup SSH key for GitHub
@@ -173,25 +173,25 @@ validate_operation $CODE "waybar CSS:"
 
 printf " ---- Downloading Wordlists ---- "
 sudo mkdir -p /usr/share/wordlists
-sudo mkdir -p /usr/share/wordlists/dirb
-sudo mkdir -p /usr/share/wordlists/dirbuster
+# sudo mkdir -p /usr/share/wordlists/dirb
+# sudo mkdir -p /usr/share/wordlists/dirbuster
 
 sudo wget -O /usr/share/wordlists/rockyou.txt.gz https://github.com/praetorian-inc/Hob0Rules/raw/master/wordlists/rockyou.txt.gz >/dev/null 2>&1
 sudo gunzip /usr/share/wordlists/rockyou.txt.gz >/dev/null 2>&1
 CODE=$?
 validate_operation $CODE "rockyou install:"
 
-sudo wget -O /usr/share/wordlists/dirb/common.txt https://raw.githubusercontent.com/v0re/dirb/master/wordlists/common.txt >/dev/null 2>&1
-CODE=$?
-validate_operation $CODE "dirb common install:"
+# sudo wget -O /usr/share/wordlists/dirb/common.txt https://raw.githubusercontent.com/v0re/dirb/master/wordlists/common.txt >/dev/null 2>&1
+# CODE=$?
+# validate_operation $CODE "dirb common install:"
 
-sudo wget -O /usr/share/wordlists/dirb/big.txt https://raw.githubusercontent.com/v0re/dirb/master/wordlists/big.txt >/dev/null 2>&1
-CODE=$?
-validate_operation $CODE "dirb big install"
+# sudo wget -O /usr/share/wordlists/dirb/big.txt https://raw.githubusercontent.com/v0re/dirb/master/wordlists/big.txt >/dev/null 2>&1
+# CODE=$?
+# validate_operation $CODE "dirb big install"
 
-sudo wget -O /usr/share/wordlists/dirbuster/directory-list-2.3-big.txt https://raw.githubusercontent.com/daviddias/node-dirbuster/master/lists/directory-list-2.3-big.txt >/dev/null 2>&1
-CODE=$?
-validate_operation $CODE "dirbuster install:"
+# sudo wget -O /usr/share/wordlists/dirbuster/directory-list-2.3-big.txt https://raw.githubusercontent.com/daviddias/node-dirbuster/master/lists/directory-list-2.3-big.txt >/dev/null 2>&1
+# CODE=$?
+# validate_operation $CODE "dirbuster install:"
 
 cd /usr/share/wordlists
 sudo git clone https://github.com/insidetrust/statistically-likely-usernames.git >/dev/null 2>&1
@@ -242,6 +242,7 @@ git clone git@github.com:m0kai/arch-dotfiles.git >/dev/null 2>&1
 CODE=$?
 validate_operation $CODE "dotfile repo download:"
 
+cd ~/Documents
 git clone git@github.com:m0kai/Grimoire.git >/dev/null 2>&1
 CODE=$?
 validate_operation $CODE "Grimoire Download:"
@@ -251,8 +252,8 @@ git config --global user.email "m0kai@proton.me"
 git config --global user.name "m0kai"
 
 # Create final few directories
-cd ~
-mkdir -p ~/VPNs
+# cd ~
+# mkdir -p ~/VPNs
 
 # Setup LazyVim
 pirntf " ---- Setting up LazyVim  ---- \n"
