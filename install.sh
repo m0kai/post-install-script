@@ -6,19 +6,19 @@ NOCOLOR='\033[0m'
 GREEN='\033[0;32m'
 
 # Array Definitions
-PACMANPACKAGES=("nmap" "neovim" "base-devel" "amd-ucode" "gnu-netcat" "thunar" "obsidian" "zsh" "net-tools" "ttf-font-awesome" "ttf-bigblueterminal-nerd" "fastfetch" "brightnessctl" "pamixer" "waybar" "discord" "vivaldi" "bluez" "bluez-utils" "blueberry" "mousepad" "signal-desktop" "gnome-themes-extra" "steam" "cuda")
-YAYPACKAGES=("1password" "nwg-drawer")
+PACMANPACKAGES=("nmap" "neovim" "base-devel" "amd-ucode" "gnu-netcat" "thunar" "obsidian" "zsh" "net-tools" "ttf-font-awesome" "ttf-bigblueterminal-nerd" "fastfetch" "brightnessctl" "pamixer" "discord" "bluez" "bluez-utils" "blueberry" "mousepad" "signal-desktop" "gnome-themes-extra" "steam" "cuda")
+YAYPACKAGES=("1password" "hyprland-qtutils" "opera")
 
 # function definitions
 validate_operation() {
-	local exit_code=$1
-	local message=$2
+  local exit_code=$1
+  local message=$2
 
-	if [ $exit_code == 0 ]; then
-		printf "${message} ${GREEN}successful ${NOCOLOR}\n"
-	else
-		printf "${message} ${RED}failed ${NOCOLOR}\n"
-	fi
+  if [ $exit_code == 0 ]; then
+    printf "${message} ${GREEN}successful ${NOCOLOR}\n"
+  else
+    printf "${message} ${RED}failed ${NOCOLOR}\n"
+  fi
 }
 
 # nvidia_driver_install() {
@@ -78,7 +78,7 @@ cd ~
 
 printf " ---- Installing AUR Software ---- \n"
 for package in ${YAYPACKAGES[@]}; do
-	yay -S $package
+  yay -S $package
 done
 
 printf " ---- Setting up BlackArch ---- \n"
@@ -102,9 +102,9 @@ validate_operation $CODE "Pacman Update:"
 
 printf " ---- Installing $(GREEN)Pacman $(NOCOLOR) Packages ---- \n"
 for package in ${PACMANPACKAGES[@]}; do
-	sudo pacman -S $package --noconfirm >/dev/null 2>&1
-	CODE=$?
-	validate_operation $CODE "${package} install:"
+  sudo pacman -S $package --noconfirm >/dev/null 2>&1
+  CODE=$?
+  validate_operation $CODE "${package} install:"
 done
 
 # printf " ---- Installing yay --- \n"
