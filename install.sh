@@ -6,7 +6,7 @@ NOCOLOR='\033[0m'
 GREEN='\033[0;32m'
 
 # Array Definitions
-PACMANPACKAGES=("nmap" "neovim" "base-devel" "amd-ucode" "gnu-netcat" "thunar" "obsidian" "zsh" "net-tools" "ttf-font-awesome" "ttf-bigblueterminal-nerd" "fastfetch" "brightnessctl" "pamixer" "discord" "bluez" "bluez-utils" "blueberry" "mousepad" "signal-desktop" "gnome-themes-extra" "steam" "cuda" "rofi")
+PACMANPACKAGES=("burpsuite" "nmap" "neovim" "base-devel" "amd-ucode" "gnu-netcat" "thunar" "obsidian" "zsh" "net-tools" "ttf-font-awesome" "ttf-bigblueterminal-nerd" "fastfetch" "brightnessctl" "pamixer" "discord" "bluez" "bluez-utils" "blueberry" "mousepad" "signal-desktop" "gnome-themes-extra" "steam" "cuda" "rofi")
 YAYPACKAGES=("1password" "hyprland-qtutils" "opera")
 
 # function definitions
@@ -261,9 +261,14 @@ setup_lazyvim() {
   printf "Open nvim to finish setup!\n"
 }
 
+# Execution starts here:quit_code
 while true; do
-  # Execution starts here
-  main_menu
+
+  if [ "$1" == 'all' ]; then
+    export CHOICE=12
+  else
+    main_menu
+  fi
 
   if [ $CHOICE == 12 ]; then
     setup_ssh
