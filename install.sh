@@ -7,7 +7,7 @@ GREEN='\033[0;32m'
 
 # Array Definitions
 PACMANPACKAGES=("burpsuite" "nmap" "neovim" "base-devel" "amd-ucode" "gnu-netcat" "thunar" "obsidian" "zsh" "net-tools" "ttf-font-awesome" "ttf-bigblueterminal-nerd" "fastfetch" "brightnessctl" "pamixer" "discord" "bluez" "bluez-utils" "blueberry" "mousepad" "signal-desktop" "gnome-themes-extra" "steam" "cuda" "rofi")
-YAYPACKAGES=("1password" "hyprland-qtutils" "opera")
+YAYPACKAGES=("hyprshot" "1password" "hyprland-qtutils" "opera")
 
 # function definitions
 validate_operation() {
